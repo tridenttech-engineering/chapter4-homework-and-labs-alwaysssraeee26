@@ -51,3 +51,33 @@ void runTest() {
   while (fgets(buffer, sizeof(buffer), output_file)) {
     actual_output += buffer;
   }
+
+  // Close and remove the temporary files
+  fclose(input_file);
+  fclose(output_file);
+
+  // Debugging information
+  cout << "Expected Value:\n" << expected_value << endl;
+  cout << "Actual Output:\n" << actual_output << endl;
+
+  // Compare the actual output to the expected value
+  if (actual_output.find(expected_value) == string::npos) {
+    cout << "Test Failed: Output does not contain the expected value" << endl;
+    exit(-1);
+  }
+
+  cout << "Test passed!" << endl;
+}
+
+int main() {
+  try {
+    runTest();
+  } catch (const exception &e) {
+    cout << "Test Failed: " << e.what() << endl;
+    return -1;
+  } catch (...) {
+    cout << "Test Failed: Unknown error occurred" << endl;
+    return -1;
+  }
+  return 0;
+}
