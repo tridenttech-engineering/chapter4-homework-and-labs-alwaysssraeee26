@@ -1,45 +1,39 @@
-#include <iostream>
-#include <iomanip> // For setting decimal precision
-
 int main() {
-    // Declare variables for the number of pizzas sold
-    int smallPizzas = 0;
-    int mediumPizzas = 0;
-    int largePizzas = 0;
-    int familyPizzas = 0;
+  //defines variables
+  int small = 0;
+  int medium = 0;
+  int large = 0;
+  int family = 0;
+  int total = 0;
+  double smallPercent = 0.0;
+  double mediumPercent = 0.0;
+  double largePercent = 0.0;
+  double familyPercent = 0.0;
+  //enter the number of small, medium, large, and family
+  cout << "Small: ";
+  cin >> small;
+  cout << "Medium: ";
+  cin >> medium;
+  cout << "Large: ";
+  cin >> large;
+  cout << "Family: ";
+  cin >> family;
+  //calculate the total
+  total = small + medium + large + family;
+  //calculate the percentages
+smallPercent = static_cast<double>(small) / total * 100;
+mediumPercent = static_cast<double>(medium) / total * 100;
+largePercent = static_cast<double>(large) / total * 100;
+familyPercent = static_cast<double>(family) / total * 100;
+  //display the total and percentages
+  cout << "Total: " << total << endl;
+  cout << "Small: " << smallPercent << "%" << endl;
+  cout << "Medium: " << mediumPercent << "%" << endl;
+  cout << "Large: " << largePercent << "%" << endl;
+  cout << "Family: " << familyPercent << "%" << endl;
+  return 0;
 
-    // Prompt user for input
-    std::cout << "Enter the number of small pizzas sold: ";
-    std::cin >> smallPizzas;
-    std::cout << "Enter the number of medium pizzas sold: ";
-    std::cin >> mediumPizzas;
-    std::cout << "Enter the number of large pizzas sold: ";
-    std::cin >> largePizzas;
-    std::cout << "Enter the number of family pizzas sold: ";
-    std::cin >> familyPizzas;
 
-    // Calculate the total number of pizzas sold
-    int totalPizzas = smallPizzas + mediumPizzas + largePizzas + familyPizzas;
 
-    // Check if totalPizzas is zero to avoid division by zero
-    if (totalPizzas == 0) {
-        std::cout << "No pizzas were sold." << std::endl;
-        return 0;
-    }
-
-    // Calculate the percentage contribution of each pizza size
-    double smallPercentage = (static_cast<double>(smallPizzas) / totalPizzas) * 100;
-    double mediumPercentage = (static_cast<double>(mediumPizzas) / totalPizzas) * 100;
-    double largePercentage = (static_cast<double>(largePizzas) / totalPizzas) * 100;
-    double familyPercentage = (static_cast<double>(familyPizzas) / totalPizzas) * 100;
-
-    // Display the results
-    std::cout << "\nTotal pizzas sold: " << totalPizzas << std::endl;
-    std::cout << std::fixed << std::setprecision(1);
-    std::cout << "Small pizzas: " << smallPercentage << "%" << std::endl;
-    std::cout << "Medium pizzas: " << mediumPercentage << "%" << std::endl;
-    std::cout << "Large pizzas: " << largePercentage << "%" << std::endl;
-    std::cout << "Family pizzas: " << familyPercentage << "%" << std::endl;
-
-    return 0;
-}
+  return 0;
+} // end of main function
