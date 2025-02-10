@@ -33,3 +33,4 @@ int main() {
   cout << "Medium: " << mediumPercent << "%" << endl;
   cout << "Large: " << largePercent << "%" << endl;
   cout << "Family: " << familyPercent << "%" << endl;
+}
